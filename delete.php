@@ -31,6 +31,7 @@ unset($_SESSION['showPopup'], $_SESSION['message'], $_SESSION['popupType']);
 <html>
 <head>
     <title>Delete Students</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/delete.css">
 </head>
 <body>
@@ -97,7 +98,9 @@ unset($_SESSION['showPopup'], $_SESSION['message'], $_SESSION['popupType']);
         <?php echo $message; ?>
     </div>
 </div>
+
 <a href="index.html" class="btn">Go back to Homepage</a>
+
 <script>
 let selectedId = null;
 

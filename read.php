@@ -1,16 +1,21 @@
 <?php 
 session_start();
 #since database is created at config folder I include the db.php instead of putting the whole database connection code 
-include 'config/db.php';
+include 'config/db.php8';
 
 $students = [];
-try {
-    $result = $conn->query("SELECT * FROM students");
-    $students = $result->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    $message = "Error loading records: " . $e->getMessage();
+$result = $conn->query("SELECT * FROM students");
+
+if ($result) {
+    while($row = $result->fetch_assoc()) {
+        $students[] = $row;
+    }
+} else {
+    $message = "Error loading records: " . $conn->error;
     $popupType = "error";
 }
+
+
 
 ?>
 <!DOCTYPE HTML>
